@@ -2,6 +2,7 @@ package de.emptydomain;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 /**
  * Application object for your web application.
@@ -28,6 +29,6 @@ public class WicketApplication extends WebApplication
 	{
 		super.init();
 
-		// add your configuration here
+		getComponentInstantiationListeners().add(new SpringComponentInjector(this));
 	}
 }
